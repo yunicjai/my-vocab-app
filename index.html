@@ -170,6 +170,9 @@
             if(!t) return;
             window.speechSynthesis.cancel();
             const m = new SpeechSynthesisUtterance(t);
+            // --- 調整速度的地方 ---
+            m.rate = 0.75; // 數值越小越慢。建議範圍 0.5 (極慢) 到 1.0 (正常)
+            // ---------------------
             m.lang = currentLang === 'kr' ? 'ko-KR' : 'ja-JP';
             window.speechSynthesis.speak(m);
         }
@@ -266,4 +269,5 @@
         }
     </script>
 </body>
+
 </html>
